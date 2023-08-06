@@ -11,7 +11,7 @@ echo "You entered $app"
 
 
 case "$app" in 
-#case 1 
+#case 1 jenkins installation
 1)
     #! /usr/bin/bash
     echo "********************************************************************"
@@ -36,7 +36,7 @@ case "$app" in
 
 ;;
 
-#case 2
+#case 2 docker installation
 2)
     #! /usr/bin/bash
     sudo apt update
@@ -53,12 +53,13 @@ case "$app" in
     sudo apt-get update
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
     sudo docker run hello-world
+    sudo groupadd docker
     sudo usermod -aG docker ubuntu
     newgrp docker
     docker ps
 ;;
 
-#case 3
+#case 3 ansible installation
 3)
     #! /usr/bin/bash
     sudo apt update
