@@ -16,4 +16,5 @@ sudo docker run hello-world
 sudo groupadd docker
 sudo usermod -aG docker ubuntu
 newgrp - docker
+#sudo chmod 666 /var/run/docker.sock
 docker ps

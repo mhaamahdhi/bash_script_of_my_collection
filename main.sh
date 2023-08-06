@@ -1,10 +1,10 @@
 #! /usr/bin/bash
 echo "What is the software you are going to install"
-echo "****************************************************"
-echo "****************************************************"
-echo "** | 1=Jenkins | 2=Docker | 3=Ansible | x=Close | **"
-echo "****************************************************"
-echo "****************************************************"
+echo "***********************************************************************"
+echo "**********************************************************************"
+echo "** | 1=Jenkins | 2=Docker | 3=Ansible | 4=Terraform| x=Close | *******"
+echo "**********************************************************************"
+echo "**********************************************************************"
 read -p "Enter the your choice : " app
 echo "You entered $app"
 
@@ -68,6 +68,16 @@ case "$app" in
     sudo apt install ansible -y
 
 ;;
+
+#case 4 terraform installation
+4)
+    #! /usr/bin/bash
+    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg -y
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+    sudo apt update && sudo apt install terraform
+
+;;
+
 
 #default case
 x)
